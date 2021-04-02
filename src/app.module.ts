@@ -8,6 +8,7 @@ import { UserModule } from './users/users.module';
 import { AuthService } from './auth/auth.service';
 import { AuthModule } from './auth/auth.module';
 import { CatsModule } from './cats/cats.module';
+import { JwtService } from '@nestjs/jwt';
 
 @Module({
   imports: [

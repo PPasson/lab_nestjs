@@ -24,3 +24,14 @@ export class CreateUserDto {
     @IsNotEmpty()
     lastname: string;
 }
+
+export class CreateLoginDto {
+    @ApiProperty({example: 'lnwza55plus'})
+    @IsString()
+    username: string;
+
+    @ApiProperty({example: 'jubjub'})
+    @IsString()
+    @IsNotEmpty()
+    password: string;
+}

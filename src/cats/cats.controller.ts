@@ -3,8 +3,10 @@ import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { CatsService } from './cats.service';
 import { CreateCatDto } from './dto/create-cat.dto';
 import { UpdateCatDto } from './dto/update-cat.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('cats')
+@ApiTags('cats')
 export class CatsController {
   constructor(private readonly catsService: CatsService) {}
 

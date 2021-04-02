@@ -23,12 +23,6 @@ import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  /*@Get()
-  async getUser(@Query() filter: UserFilterDto): Promise<any> {
-    const data = await this.userService.getUser(filter);
-    return { success: true, data: data };
-  }*/
-
   @UseGuards(JwtAuthGuard)
   @Post()
   async create(@Body() Body: CreateUserDto): Promise<any> {

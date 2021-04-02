@@ -8,6 +8,7 @@ import {
   Delete,
   Put,
   Query,
+  UseGuards,
 } from '@nestjs/common';
 import { UserService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -15,6 +16,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { Users } from 'src/entities/user.entity';
 import { RespUsers } from 'src/interfaces/user.interface';
 import { ApiTags } from '@nestjs/swagger';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 @Controller('user')
 @ApiTags('users')
@@ -27,6 +29,7 @@ export class UserController {
     return { success: true, data: data };
   }*/
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   async create(@Body() Body: CreateUserDto): Promise<any> {
     const dataSave = await this.userService.createUser(Body);
@@ -47,6 +50,7 @@ export class UserController {
     return _newUser;
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get()
   findAll() {
     return this.userService.findAll();

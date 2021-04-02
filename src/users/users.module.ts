@@ -3,6 +3,7 @@ import { UserService } from './users.service';
 import { UserController } from './users.controller';
 import { UsersRepository } from 'src/repositories/user.repository';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 @Module({
   imports: [
     TypeOrmModule.forFeature([UsersRepository])

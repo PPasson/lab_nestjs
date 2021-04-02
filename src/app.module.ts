@@ -7,6 +7,7 @@ import { logger } from './logger.middleware';
 import { UserModule } from './users/users.module';
 import { AuthService } from './auth/auth.service';
 import { AuthModule } from './auth/auth.module';
+import { CatsModule } from './cats/cats.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { AuthModule } from './auth/auth.module';
       synchronize: true,
     }),
     AuthModule,
+    CatsModule,
   ],
   controllers: [AppController],
   providers: [AppService, AuthService],

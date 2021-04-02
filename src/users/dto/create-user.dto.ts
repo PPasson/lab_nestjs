@@ -9,6 +9,10 @@ export class CreateUserDto {
     @IsString()
     username: string;
 
+    @ApiProperty({example: 'employee'})
+    @IsString()
+    role: string;
+
     @ApiProperty({example: 'jubjub'})
     @IsString()
     @IsNotEmpty()
